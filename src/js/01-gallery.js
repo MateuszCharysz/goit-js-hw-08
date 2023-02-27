@@ -6,7 +6,10 @@ import { galleryItems } from './gallery-items';
 //help
 const log = console.log;
 // log(galleryItems);
-
+log('ggggggg');
+log('ggggggg');
+log('ggggggg');
+log('ggggggg');
 //DOM elements
 const gallery = document.querySelector('.gallery');
 // log(gallery);
