@@ -10,7 +10,8 @@ log('ggggggg');
 log('ggggggg');
 log('ggggggg');
 log('ggggggg');
-
+log('ggggggg');
+log('ggggggg');
 //DOM elements
 const gallery = document.querySelector('.gallery');
 // log(gallery);
@@ -43,3 +44,6 @@ gallery.addEventListener('click', event => {
 });
 
 console.log(galleryItems);
+if (module.hot) {
+  module.hot.accept();
+}

@@ -1,6 +1,6 @@
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
-import { save, load, remove } from './storage';
+import { save, load, remove } from './localstorage';
 // const throttle = require('lodash.throttle');
 
 //help
