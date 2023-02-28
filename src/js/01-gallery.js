@@ -10,6 +10,7 @@ log('ggggggg');
 log('ggggggg');
 log('ggggggg');
 log('ggggggg');
+
 //DOM elements
 const gallery = document.querySelector('.gallery');
 // log(gallery);
