@@ -6,12 +6,7 @@ import { galleryItems } from './gallery-items';
 //help
 const log = console.log;
 // log(galleryItems);
-log('ggggggg');
-log('ggggggg');
-log('ggggggg');
-log('ggggggg');
-log('ggggggg');
-log('ggggggg');
+
 //DOM elements
 const gallery = document.querySelector('.gallery');
 // log(gallery);
@@ -42,8 +37,3 @@ gallery.addEventListener('click', event => {
   // log(event.target);
   event.target.lightbox;
 });
-
-console.log(galleryItems);
-if (module.hot) {
-  module.hot.accept();
-}

@@ -1,38 +1,57 @@
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
-import { save, load, remove } from './localstorage';
-// const throttle = require('lodash.throttle');
 
 //help
 const log = console.log;
-// const _.throttle(() => {func}, 1000)
-// log(Player)
+
 //DOM
 const vimeoPlayer = document.querySelector('#vimeo-player');
 const vPlayer = new Player(vimeoPlayer);
 log(vPlayer);
 
-const testLocal = () => save('videoplayer-current-time', 5);
-log(testLocal())
 //callback
 const onPlay = () => {
   vPlayer
     .getCurrentTime()
     .then(function (seconds) {
       log(seconds);
-      save('videoplayer-current-time', seconds);
-      // seconds = the current playback position
+      localStorage.setItem('videoplayer-current-time', JSON.stringify(seconds));
     })
     .catch(function (error) {
-      console.log('shit went south');
-      // an error occurred
+      console.log(`shit went south:${error}`);
     });
 };
 
+const reLoad = () => {
+  vPlayer
+    .setCurrentTime()
+    .then(function (seconds) {
+      try {
+        seconds = localStorage.getItem('videoplayer-current-time') === null
+          ? undefined
+          : JSON.parse(localStorage.getItem('videoplayer-current-time'));
+      } catch (error) {
+        // seconds = the actual time that the player seeked to
+        console.error('Get state error: ', error.message);
+      }
+    })
+    .catch(function (error) {
+      switch (error.name) {
+        case 'RangeError':
+          // the time was less than 0 or greater than the video’s duration
+          break;
+
+        default:
+          // some other error occurred
+          break;
+      }
+    });
+};
+
+//EVENT
 vPlayer.on(
-  'play',
-  onPlay,
-  // throttle(() => {
-  //   onPlay;
-  // }, 1000),
+  'timeupdate',
+  // onPlay
+  throttle(onPlay, 940),
 );
+vimeoPlayer.addEventListener('pageshow', reLoad);
