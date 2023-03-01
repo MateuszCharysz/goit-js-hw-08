@@ -21,20 +21,18 @@ const onPlay = () => {
       console.log(`shit went south:${error}`);
     });
 };
-
+const storageTimeStamp = () => {try {
+  return localStorage.getItem('videoplayer-current-time') === null
+    ? undefined
+    : JSON.parse(localStorage.getItem('videoplayer-current-time'));
+} catch (error) {
+  // seconds = the actual time that the player seeked to
+  console.error('Get state error: ', error.message);
+}}
 const reLoad = () => {
   vPlayer
-    .setCurrentTime()
-    .then(function (seconds) {
-      try {
-        seconds = localStorage.getItem('videoplayer-current-time') === null
-          ? undefined
-          : JSON.parse(localStorage.getItem('videoplayer-current-time'));
-      } catch (error) {
-        // seconds = the actual time that the player seeked to
-        console.error('Get state error: ', error.message);
-      }
-    })
+    .setCurrentTime(storageTimeStamp)
+    .then(function (seconds) {})
     .catch(function (error) {
       switch (error.name) {
         case 'RangeError':
@@ -54,4 +52,4 @@ vPlayer.on(
   // onPlay
   throttle(onPlay, 940),
 );
-vimeoPlayer.addEventListener('pageshow', reLoad);
+document.addEventListener('DOMContentLoaded', reLoad);
