@@ -29,9 +29,10 @@ const storageTimeStamp = () => {try {
   // seconds = the actual time that the player seeked to
   console.error('Get state error: ', error.message);
 }}
+
 const reLoad = () => {
   vPlayer
-    .setCurrentTime(storageTimeStamp)
+    .setCurrentTime(storageTimeStamp())
     .then(function (seconds) {})
     .catch(function (error) {
       switch (error.name) {
@@ -47,9 +48,9 @@ const reLoad = () => {
 };
 
 //EVENT
+reLoad();
 vPlayer.on(
   'timeupdate',
   // onPlay
   throttle(onPlay, 940),
 );
-document.addEventListener('DOMContentLoaded', reLoad);
