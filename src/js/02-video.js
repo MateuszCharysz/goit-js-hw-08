@@ -21,14 +21,16 @@ const onPlay = () => {
       console.log(`shit went south:${error}`);
     });
 };
-const storageTimeStamp = () => {try {
-  return localStorage.getItem('videoplayer-current-time') === null
-    ? undefined
-    : JSON.parse(localStorage.getItem('videoplayer-current-time'));
-} catch (error) {
-  // seconds = the actual time that the player seeked to
-  console.error('Get state error: ', error.message);
-}}
+const storageTimeStamp = () => {
+  try {
+    return localStorage.getItem('videoplayer-current-time') === null
+      ? undefined
+      : JSON.parse(localStorage.getItem('videoplayer-current-time'));
+  } catch (error) {
+    // seconds = the actual time that the player seeked to
+    console.error('Get state error: ', error.message);
+  }
+};
 
 const reLoad = () => {
   vPlayer
