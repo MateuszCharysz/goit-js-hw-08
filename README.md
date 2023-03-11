@@ -8,7 +8,7 @@ HTML/css/parcel were ready. also fallowing functions where given:
 		
 		shouldResolve
 
-Librarries - [Notiflix](https://github.com/notiflix/Notiflix#readme), [flatpickr](https://flatpickr.js.org/)
+Libraries - [Notiflix](https://github.com/notiflix/Notiflix#readme), [flatpickr](https://flatpickr.js.org/)
 
 ## Task 1
 
