@@ -1,23 +1,19 @@
-# JS Homework nr 9
+# JS Homework nr 8
 
-HTML/css/parcel were ready. also fallowing functions where given:
+HTML/css/parcel were ready. also fallowing js file was given:
 
-		getRandomHexColor
-		
-		convertMs
-		
-		shouldResolve
+gallery-items.js
 
-Libraries - [Notiflix](https://github.com/notiflix/Notiflix#readme), [flatpickr](https://flatpickr.js.org/)
+Libraries - [SimpleLightbox](https://simplelightbox.com/), [Vimeoplayer](https://github.com/vimeo/player.js/#vimeo-player-api), [flatpickr](https://flatpickr.js.org/), [lodash.throttle](https://www.npmjs.com/package/lodash.throttle),
 
 ## Task 1
 
-Random color change with buttons
+Create gallery from JS file, and make lightbox with external library.
 
 ## Task 2
 
-Pick a date and runtimer (no reset)
+By using local storage, make player remember where it has stoped playing video.
 
 ## Task 3
 
-Make promise generator with delays
+Use form to save input in local storage. (loadash throttle input with 500 ms)
