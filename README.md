@@ -1,6 +1,6 @@
 # JS Homework nr 8
 
-HTML/css/parcel were ready. also fallowing js file was given:
+HTML/css/parcel were ready. also following js file was given:
 
 `gallery-items.js`
 
